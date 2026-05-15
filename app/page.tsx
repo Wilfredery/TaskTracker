@@ -1,25 +1,16 @@
-"use client";
-import { TaskInput } from "@/components/tasks";
-import { TaskItem } from "@/components/tasks";
-import { Task } from "@/types/task";
+import { TaskTracker } from "@/components/tasks";
 
 export default function Home() {
-  const fakeTask: Task = {
-    id: "123",
-    title: "Test",
-    completed: false,
-    createdAt: 0,
-  };
-
   return (
     <main className="container mx-auto max-w-lg px-4 py-8">
-      <TaskInput onAddTask={(title) => console.log("Agregado:", title)} />
+      <header className="mb-6">
+        <h1 className="text-3xl font-bold text-center">Task tracker</h1>
+        <p className="text-center text-base-content/60 mt-1">
+          Keep track of your daily tasks
+        </p>
+      </header>
 
-      <TaskItem
-        task={fakeTask}
-        onToggle={(id) => console.log("Toggle:", id)}
-        onDelete={(id) => console.log("Delete:", id)}
-      />
+      <TaskTracker />
     </main>
   );
 }
